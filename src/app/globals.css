@@ -1,26 +1,82 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-navy: #062b55;
+  --color-deep-teal: #006b6b;
+  --color-teal: #0b8f8f;
+  --color-mint: #ddf5f3;
+  --color-bg-light: #f7fbfa;
+  --color-white: #ffffff;
+  --background: var(--color-bg-light);
+  --foreground: #1a2e3b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: #062b55;
+  --color-deep-teal: #006b6b;
+  --color-teal: #0b8f8f;
+  --color-mint: #ddf5f3;
+  --color-bg-light: #f7fbfa;
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+/* Decorative wave pattern */
+.pattern-dots {
+  background-image: radial-gradient(
+    circle,
+    rgba(11, 143, 143, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+.gradient-hero {
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-light) 0%,
+    var(--color-mint) 50%,
+    var(--color-bg-light) 100%
+  );
+}
+
+.gradient-cta {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-deep-teal) 100%);
 }
