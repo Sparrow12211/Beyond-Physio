@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/Button";
 
 export function CallToAction() {
   return (
-    <section className="gradient-cta relative overflow-hidden py-16 md:py-20 lg:py-24">
+    <section className="gradient-cta relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24">
       {/* Decorative elements */}
-      <div className="pointer-events-none absolute inset-0 opacity-10">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-10">
         <svg
-          className="absolute -right-10 top-1/2 h-64 w-64 -translate-y-1/2 text-white"
+          className="absolute -right-10 top-1/2 hidden h-64 w-64 -translate-y-1/2 text-white sm:block"
           viewBox="0 0 200 200"
           fill="none"
           aria-hidden="true"
@@ -22,7 +22,7 @@ export function CallToAction() {
           <circle cx="100" cy="100" r="60" stroke="currentColor" strokeWidth="1.5" strokeDasharray="8 6" />
         </svg>
         <svg
-          className="absolute -left-16 bottom-0 h-48 w-48 text-white"
+          className="absolute -left-16 bottom-0 hidden h-48 w-48 text-white sm:block"
           viewBox="0 0 200 200"
           fill="none"
           aria-hidden="true"
@@ -43,7 +43,7 @@ export function CallToAction() {
             subtitle="Book your appointment and start your journey toward better movement, recovery and wellbeing."
             light
           />
-          <Button href="/contact" variant="white" className="mt-2">
+          <Button href="/contact" variant="white" className="mt-2 w-full sm:w-auto">
             Book an Appointment
           </Button>
         </AnimatedSection>

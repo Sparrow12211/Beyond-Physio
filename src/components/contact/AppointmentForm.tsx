@@ -108,11 +108,11 @@ export function AppointmentForm() {
   }
 
   const fieldClass =
-    "w-full rounded-lg border border-mint bg-white px-4 py-3 text-sm text-navy placeholder:text-foreground/40 transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20";
+    "w-full min-w-0 rounded-lg border border-mint bg-white px-4 py-3 text-base text-navy placeholder:text-foreground/40 transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 sm:text-sm min-h-[44px]";
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-5">
-      <div className="grid gap-5 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} noValidate className="space-y-4 sm:space-y-5">
+      <div className="grid min-w-0 gap-4 sm:grid-cols-2 sm:gap-5">
         <Field label="Full Name" id="fullName" error={errors.fullName} required>
           <input
             id="fullName"
@@ -152,7 +152,7 @@ export function AppointmentForm() {
         />
       </Field>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid min-w-0 gap-4 sm:grid-cols-2 sm:gap-5">
         <Field label="Preferred Date" error={errors.preferredDate} required>
           <input
             type="date"

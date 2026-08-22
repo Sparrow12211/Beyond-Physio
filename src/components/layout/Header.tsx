@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <Link href="/" className="group flex items-center gap-3">
+    <Link href="/" className="group flex min-w-0 items-center gap-2.5 sm:gap-3">
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal text-white transition-transform group-hover:scale-105">
         <svg
           viewBox="0 0 24 24"
@@ -28,8 +28,13 @@ function Logo({ compact = false }: { compact?: boolean }) {
           <circle cx="12" cy="14" r="2" fill="currentColor" />
         </svg>
       </div>
-      <div className={cn(compact && "hidden sm:block")}>
-        <p className="font-serif text-lg font-bold leading-tight text-navy sm:text-xl">
+      <div className="min-w-0">
+        <p
+          className={cn(
+            "truncate font-serif font-bold leading-tight text-navy",
+            compact ? "text-base sm:text-lg lg:text-xl" : "text-lg sm:text-xl",
+          )}
+        >
           {SITE.name}
         </p>
         {!compact && (
@@ -44,8 +49,10 @@ function Logo({ compact = false }: { compact?: boolean }) {
 
 export function Header() {
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [headerHeight, setHeaderHeight] = useState(64);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -55,6 +62,22 @@ export function Header() {
   }, []);
 
   useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        setHeaderHeight(headerRef.current.offsetHeight);
+      }
+    };
+
+    updateHeaderHeight();
+    window.addEventListener("resize", updateHeaderHeight);
+    return () => window.removeEventListener("resize", updateHeaderHeight);
+  }, [scrolled, mobileOpen]);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
@@ -62,76 +85,90 @@ export function Header() {
   }, [mobileOpen]);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled
-          ? "border-b border-mint/60 bg-white/95 py-2 shadow-sm backdrop-blur-md"
-          : "bg-white/80 py-4 backdrop-blur-sm",
-      )}
-    >
-      <Container>
-        <div className="flex items-center justify-between gap-4">
-          <Logo compact={scrolled} />
+    <>
+      <header
+        ref={headerRef}
+        className={cn(
+          "sticky top-0 z-50 w-full transition-all duration-300",
+          scrolled
+            ? "border-b border-mint/60 bg-white/95 py-2 shadow-sm backdrop-blur-md"
+            : "bg-white/80 py-3 backdrop-blur-sm sm:py-4",
+        )}
+      >
+        <Container>
+          <div className="flex items-center justify-between gap-3 sm:gap-4">
+            <Logo compact={scrolled} />
 
-          <nav
-            className="hidden items-center gap-1 xl:flex"
-            aria-label="Main navigation"
-          >
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "rounded-full px-3 py-2 text-sm font-medium transition-colors hover:text-teal",
-                  pathname === link.href
-                    ? "text-teal"
-                    : "text-navy/80",
-                )}
+            <nav
+              className="hidden items-center gap-1 xl:flex"
+              aria-label="Main navigation"
+            >
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "rounded-full px-3 py-2 text-sm font-medium transition-colors hover:text-teal",
+                    pathname === link.href ? "text-teal" : "text-navy/80",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+              <Button
+                href="/contact"
+                variant="primary"
+                className="hidden px-4 py-2.5 text-xs sm:inline-flex sm:px-5 sm:text-sm"
               >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+                Book an Appointment
+              </Button>
 
-          <div className="flex items-center gap-3">
-            <Button
-              href="/contact"
-              variant="primary"
-              className="hidden px-5 py-2.5 text-xs sm:inline-flex sm:text-sm"
-            >
-              Book an Appointment
-            </Button>
-
-            <button
-              type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-mint text-navy transition-colors hover:bg-mint xl:hidden"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-menu"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            >
-              {mobileOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </button>
+              <button
+                type="button"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-mint text-navy transition-colors hover:bg-mint xl:hidden"
+                onClick={() => setMobileOpen(!mobileOpen)}
+                aria-expanded={mobileOpen}
+                aria-controls="mobile-menu"
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              >
+                {mobileOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </button>
+            </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </header>
 
-      {/* Mobile menu */}
+      {/* Mobile menu backdrop */}
+      <div
+        className={cn(
+          "fixed inset-0 z-40 bg-navy/40 transition-opacity duration-300 xl:hidden",
+          mobileOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0",
+        )}
+        onClick={() => setMobileOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Mobile menu panel */}
       <div
         id="mobile-menu"
+        style={{ top: headerHeight }}
         className={cn(
-          "fixed inset-0 top-[60px] z-40 bg-white transition-transform duration-300 xl:hidden",
+          "fixed inset-x-0 bottom-0 z-40 bg-white shadow-xl transition-transform duration-300 ease-out xl:hidden",
           mobileOpen ? "translate-x-0" : "translate-x-full",
         )}
         aria-hidden={!mobileOpen}
       >
         <nav
-          className="flex h-full flex-col overflow-y-auto px-6 py-8"
+          className="flex h-full flex-col overflow-y-auto overscroll-contain px-5 py-6 sm:px-6 sm:py-8"
           aria-label="Mobile navigation"
         >
           {NAV_LINKS.map((link) => (
@@ -140,20 +177,20 @@ export function Header() {
               href={link.href}
               onClick={() => setMobileOpen(false)}
               className={cn(
-                "border-b border-mint/50 py-4 text-lg font-medium transition-colors",
+                "min-h-[48px] border-b border-mint/50 py-3.5 text-base font-medium transition-colors sm:text-lg",
                 pathname === link.href ? "text-teal" : "text-navy",
               )}
             >
               {link.label}
             </Link>
           ))}
-          <div className="mt-8">
+          <div className="mt-6 pb-4">
             <Button href="/contact" variant="primary" className="w-full">
               Book an Appointment
             </Button>
           </div>
         </nav>
       </div>
-    </header>
+    </>
   );
 }

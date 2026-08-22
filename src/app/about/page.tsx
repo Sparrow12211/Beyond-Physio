@@ -24,14 +24,14 @@ export default function AboutPage() {
         subtitle="Dedicated to Your Movement, Health & Wellbeing"
       />
 
-      <section className="py-16 md:py-20 lg:py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
         <Container>
-          <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
-            <AnimatedSection>
-              <h2 className="font-serif text-3xl font-bold text-navy sm:text-4xl">
+          <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-16">
+            <AnimatedSection className="min-w-0">
+              <h2 className="font-serif text-2xl font-bold text-navy min-[375px]:text-3xl sm:text-4xl">
                 Welcome to {SITE.name}
               </h2>
-              <div className="mt-6 space-y-4 text-base leading-relaxed text-foreground/70">
+              <div className="mt-6 space-y-4 text-sm leading-relaxed text-foreground/70 sm:text-base">
                 <p>
                   {SITE.name} is a physiotherapy and rehabilitation clinic
                   committed to helping patients move with confidence, recover
@@ -51,7 +51,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="mt-6 grid grid-cols-1 gap-2.5 sm:mt-8 sm:grid-cols-2 sm:gap-3">
                 {VALUE_STATEMENTS.map((statement) => (
                   <div
                     key={statement}
@@ -66,7 +66,7 @@ export default function AboutPage() {
               </div>
             </AnimatedSection>
 
-            <DoctorProfile />
+            <DoctorProfile className="min-w-0" />
           </div>
         </Container>
       </section>

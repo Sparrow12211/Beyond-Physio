@@ -15,11 +15,11 @@ export function Footer() {
 
   return (
     <footer className="gradient-cta text-white">
-      <Container as="footer" className="py-14 lg:py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <Container as="footer" className="py-10 sm:py-12 lg:py-16">
+        <div className="grid gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <p className="font-serif text-2xl font-bold">{SITE.name}</p>
+          <div className="min-w-0 lg:col-span-1">
+            <p className="font-serif text-xl font-bold sm:text-2xl">{SITE.name}</p>
             <p className="mt-2 text-sm font-medium text-mint/90">
               {SITE.tagline}
             </p>
@@ -30,7 +30,7 @@ export function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
+          <div className="min-w-0">
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-mint">
               Quick Links
             </h3>
@@ -49,7 +49,7 @@ export function Footer() {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="min-w-0">
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-mint">
               Our Services
             </h3>
@@ -68,7 +68,7 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="min-w-0">
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-mint">
               Contact Us
             </h3>
@@ -92,7 +92,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <span className="flex items-start gap-2.5 text-sm text-white/80">
+                <span className="flex items-start gap-2.5 break-words text-sm text-white/80">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-mint" />
                   {CONTACT.address}
                 </span>
@@ -113,7 +113,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/15 pt-6 text-center text-xs text-white/60">
+        <div className="mt-8 border-t border-white/15 pt-6 text-center text-xs text-white/60 sm:mt-12">
           <p>
             &copy; {year} {SITE.name}. All rights reserved.
           </p>

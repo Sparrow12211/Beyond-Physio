@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { DOCTOR } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
-export function DoctorProfile() {
+export function DoctorProfile({ className }: { className?: string }) {
   return (
-    <div className="space-y-6">
+    <div className={cn("min-w-0 space-y-5 sm:space-y-6", className)}>
       <AnimatedSection>
         <div className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-mint/60">
-          <div className="relative aspect-[4/5] w-full sm:aspect-[3/4]">
+          <div className="relative aspect-[4/5] w-full max-h-[480px] sm:max-h-none sm:aspect-[3/4]">
             <Image
               src="/assets/images/dr-summaya-talha.jpg"
               alt={`${DOCTOR.name}, ${DOCTOR.title}`}
@@ -20,8 +21,8 @@ export function DoctorProfile() {
       </AnimatedSection>
 
       <AnimatedSection delay={0.1}>
-        <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-mint/60">
-          <h3 className="font-serif text-xl font-bold text-navy">
+        <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-mint/60 sm:p-6">
+          <h3 className="font-serif text-lg font-bold text-navy min-[375px]:text-xl">
             {DOCTOR.name}
           </h3>
           <p className="mt-1 text-sm font-medium text-teal">

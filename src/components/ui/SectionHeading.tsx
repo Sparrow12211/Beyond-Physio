@@ -20,7 +20,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "mb-10 md:mb-14",
+        "mb-8 md:mb-10 lg:mb-14",
         align === "center" && "text-center",
         className,
       )}
@@ -37,7 +37,7 @@ export function SectionHeading({
       )}
       <h2
         className={cn(
-          "font-serif text-3xl font-bold leading-tight sm:text-4xl lg:text-[2.75rem]",
+          "font-serif text-2xl font-bold leading-tight min-[375px]:text-3xl sm:text-4xl lg:text-[2.75rem]",
           light ? "text-white" : "text-navy",
         )}
       >
@@ -46,7 +46,7 @@ export function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 max-w-2xl text-base leading-relaxed sm:text-lg",
+            "mt-3 max-w-2xl text-sm leading-relaxed min-[375px]:text-base sm:mt-4 sm:text-lg",
             align === "center" && "mx-auto",
             light ? "text-white/85" : "text-foreground/70",
           )}

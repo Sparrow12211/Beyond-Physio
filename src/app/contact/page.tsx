@@ -11,7 +11,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createMetadata({
   title: `Contact & Appointments | ${SITE.name}`,
   description:
-    "Book your physiotherapy appointment at Beeyond Physio. Contact us by phone, WhatsApp, or request an appointment online.",
+    "Book your physiotherapy appointment at Beyond Physio. Contact us by phone, WhatsApp, or request an appointment online.",
   path: "/contact",
 });
 
@@ -23,12 +23,12 @@ export default function ContactPage() {
         subtitle="Book Your Appointment Today"
       />
 
-      <section className="py-16 md:py-20 lg:py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
+          <div className="grid gap-8 sm:gap-10 lg:grid-cols-5 lg:gap-16">
             {/* Contact info */}
-            <AnimatedSection className="lg:col-span-2">
-              <h2 className="font-serif text-2xl font-bold text-navy">
+            <AnimatedSection className="min-w-0 lg:col-span-2">
+              <h2 className="font-serif text-xl font-bold text-navy min-[375px]:text-2xl">
                 Book an Appointment
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-foreground/70">
@@ -36,16 +36,16 @@ export default function ContactPage() {
                 us to schedule your consultation.
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button href={CONTACT.whatsapp} variant="primary">
+              <div className="mt-5 flex flex-col gap-3 min-[400px]:flex-row min-[400px]:flex-wrap sm:mt-6">
+                <Button href={CONTACT.whatsapp} variant="primary" className="w-full min-[400px]:w-auto">
                   WhatsApp Us
                 </Button>
-                <Button href={CONTACT.phoneHref} variant="outline">
+                <Button href={CONTACT.phoneHref} variant="outline" className="w-full min-[400px]:w-auto">
                   Call Now
                 </Button>
               </div>
 
-              <h3 className="mt-10 font-serif text-xl font-bold text-navy">
+              <h3 className="mt-8 font-serif text-lg font-bold text-navy min-[375px]:text-xl sm:mt-10">
                 Contact Information
               </h3>
               <ul className="mt-4 space-y-4">
@@ -68,7 +68,7 @@ export default function ContactPage() {
                   </a>
                 </li>
                 <li>
-                  <span className="flex items-start gap-3 text-sm text-foreground/70">
+                  <span className="flex items-start gap-3 break-words text-sm text-foreground/70">
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
                     {CONTACT.address}
                   </span>
@@ -77,9 +77,9 @@ export default function ContactPage() {
             </AnimatedSection>
 
             {/* Form */}
-            <AnimatedSection delay={0.1} className="lg:col-span-3">
-              <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-mint/60 sm:p-8">
-                <h2 className="font-serif text-2xl font-bold text-navy">
+            <AnimatedSection delay={0.1} className="min-w-0 lg:col-span-3">
+              <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-mint/60 sm:p-6 md:p-8">
+                <h2 className="font-serif text-xl font-bold text-navy min-[375px]:text-2xl">
                   Request an Appointment
                 </h2>
                 <p className="mt-2 text-sm text-foreground/60">

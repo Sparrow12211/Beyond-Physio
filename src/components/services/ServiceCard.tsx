@@ -20,7 +20,7 @@ export function ServiceCard({ service, variant = "default" }: ServiceCardProps) 
   return (
     <article
       className={cn(
-        "group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-mint/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg",
+        "group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-mint/80 transition-all duration-300 hover:shadow-lg motion-safe:hover:-translate-y-1",
         variant === "compact" && "flex flex-col",
       )}
     >
@@ -37,8 +37,8 @@ export function ServiceCard({ service, variant = "default" }: ServiceCardProps) 
           <Icon className="h-5 w-5" strokeWidth={1.75} />
         </div>
       </div>
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h3 className="font-serif text-xl font-bold text-navy">
+      <div className="flex flex-1 flex-col p-4 min-[375px]:p-5 sm:p-6">
+        <h3 className="font-serif text-lg font-bold text-navy min-[375px]:text-xl">
           {service.title}
         </h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/65">
@@ -65,7 +65,7 @@ export function ServicesGrid({ services, columns = 3 }: ServicesGridProps) {
   return (
     <div
       className={cn(
-        "grid gap-6",
+        "grid gap-5 min-[375px]:gap-6",
         columns === 3
           ? "sm:grid-cols-2 lg:grid-cols-3"
           : "md:grid-cols-2",
@@ -82,7 +82,7 @@ export function ServicesGrid({ services, columns = 3 }: ServicesGridProps) {
 
 export function ServicesPreview() {
   return (
-    <section className="bg-bg-light py-16 md:py-20 lg:py-24">
+    <section className="bg-bg-light py-12 sm:py-16 md:py-20 lg:py-24">
       <Container>
         <SectionHeading
           title="Our Physiotherapy Services"
@@ -90,7 +90,7 @@ export function ServicesPreview() {
         />
         <ServicesGrid services={serviceList} columns={3} />
         <AnimatedSection className="mt-10 text-center">
-          <Button href="/services" variant="secondary">
+          <Button href="/services" variant="secondary" className="w-full sm:w-auto">
             View All Services
           </Button>
         </AnimatedSection>

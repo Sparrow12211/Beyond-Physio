@@ -22,7 +22,7 @@ export default function ServicesPage() {
         subtitle="Expert Physiotherapy Care for Every Stage of Life"
       />
 
-      <section className="py-16 md:py-20 lg:py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
         <Container>
           <ServicesGrid services={services} columns={2} />
         </Container>

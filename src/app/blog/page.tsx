@@ -9,7 +9,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createMetadata({
   title: `Blog | ${SITE.name}`,
   description:
-    "Health tips, physiotherapy insights, and wellness articles from Beeyond Physio. Coming soon.",
+    "Health tips, physiotherapy insights, and wellness articles from Beyond Physio. Coming soon.",
   path: "/blog",
 });
 
@@ -21,7 +21,7 @@ export default function BlogPage() {
         subtitle="Health Tips & Physiotherapy Insights"
       />
 
-      <section className="py-16 md:py-20">
+      <section className="py-12 sm:py-16 md:py-20">
         <Container>
           <AnimatedSection className="mx-auto max-w-lg text-center">
             <p className="text-base leading-relaxed text-foreground/70">
@@ -29,7 +29,7 @@ export default function BlogPage() {
               movement, recovery, and wellbeing.
             </p>
             <div className="mt-8">
-              <Button href="/" variant="outline">
+              <Button href="/" variant="outline" className="w-full sm:w-auto">
                 Back to Home
               </Button>
             </div>

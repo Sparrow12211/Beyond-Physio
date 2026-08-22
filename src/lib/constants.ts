@@ -1,5 +1,5 @@
 export const SITE = {
-  name: "Beeyond Physio",
+  name: "Beyond Physio",
   tagline: "Move Better. Feel Better. Live Better.",
   description:
     "Personalized physiotherapy care designed to help you move with confidence, recover from injury, and improve your quality of life.",
