@@ -20,7 +20,7 @@ export function ServiceCard({ service, variant = "default" }: ServiceCardProps) 
   return (
     <article
       className={cn(
-        "group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-mint/80 transition-all duration-300 hover:shadow-lg motion-safe:hover:-translate-y-1",
+        "group overflow-hidden rounded-2xl bg-[var(--color-mint)] shadow-sm ring-1 ring-[var(--color-deep-teal)] transition-all duration-300 hover:shadow-lg motion-safe:hover:-translate-y-1",
         variant === "compact" && "flex flex-col",
       )}
     >
@@ -33,12 +33,12 @@ export function ServiceCard({ service, variant = "default" }: ServiceCardProps) 
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
-        <div className="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/95 text-teal shadow-sm">
+        <div className="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(0,0,0,0.6)] text-[var(--color-teal)] shadow-sm">
           <Icon className="h-5 w-5" strokeWidth={1.75} />
         </div>
       </div>
       <div className="flex flex-1 flex-col p-4 min-[375px]:p-5 sm:p-6">
-        <h3 className="font-serif text-lg font-bold text-navy min-[375px]:text-xl">
+        <h3 className="font-serif text-lg font-bold text-white min-[375px]:text-xl">
           {service.title}
         </h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/65">
@@ -46,7 +46,7 @@ export function ServiceCard({ service, variant = "default" }: ServiceCardProps) 
         </p>
         <Link
           href="/services"
-          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-teal transition-colors hover:text-deep-teal"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-teal)] transition-colors hover:text-[var(--color-deep-teal)]"
         >
           Learn More
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -82,7 +82,7 @@ export function ServicesGrid({ services, columns = 3 }: ServicesGridProps) {
 
 export function ServicesPreview() {
   return (
-    <section className="bg-bg-light py-12 sm:py-16 md:py-20 lg:py-24">
+    <section className="bg-[var(--color-bg-light)] py-12 sm:py-16 md:py-20 lg:py-24">
       <Container>
         <SectionHeading
           title="Our Physiotherapy Services"

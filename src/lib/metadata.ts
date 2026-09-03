@@ -21,12 +21,19 @@ export function createMetadata({ title, description, path }: PageMeta): Metadata
       url,
       siteName: SITE.name,
       type: "website",
+      images: [
+        {
+          url: `${SITE.url}/assets/images/Logo.png`,
+          alt: SITE.name,
+        },
+      ],
       locale: "en_PK",
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [`${SITE.url}/assets/images/Logo.png`],
     },
   };
 }

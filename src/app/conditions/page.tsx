@@ -31,8 +31,8 @@ export default function ConditionsPage() {
           <div className="grid gap-4 min-[375px]:gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {conditions.map((condition, index) => (
               <AnimatedSection key={condition.title} delay={index * 0.05}>
-                <article className="h-full rounded-xl bg-white p-5 shadow-sm ring-1 ring-mint/60 transition-shadow hover:shadow-md sm:p-6">
-                  <h3 className="font-serif text-base font-bold text-navy min-[375px]:text-lg">
+                <article className="h-full rounded-xl bg-[var(--color-mint)] p-5 shadow-sm ring-1 ring-[var(--color-deep-teal)] transition-shadow hover:shadow-md sm:p-6">
+                  <h3 className="font-serif text-base font-bold text-white min-[375px]:text-lg">
                     {condition.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-foreground/65">
@@ -44,7 +44,7 @@ export default function ConditionsPage() {
           </div>
 
           <AnimatedSection className="mt-10">
-            <p className="rounded-lg bg-mint/40 px-4 py-3.5 text-center text-sm text-foreground/70 sm:px-5 sm:py-4">
+            <p className="rounded-lg bg-[var(--color-deep-teal)]/60 px-4 py-3.5 text-center text-sm text-foreground/70 sm:px-5 sm:py-4">
               {CONDITIONS_DISCLAIMER}
             </p>
           </AnimatedSection>

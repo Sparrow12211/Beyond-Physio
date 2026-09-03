@@ -3,7 +3,7 @@ export const SITE = {
   tagline: "Move Better. Feel Better. Live Better.",
   description:
     "Personalized physiotherapy care designed to help you move with confidence, recover from injury, and improve your quality of life.",
-  url: "https://beeyondphysio.com",
+  url: "https://beyondphysio.com",
 } as const;
 
 export const DOCTOR = {
@@ -17,15 +17,17 @@ export const CONTACT = {
   phone: "0300-2984021",
   phoneHref: "tel:+923002984021",
   whatsapp: "https://wa.me/923002984021",
-  email: "[Replace with actual email]",
-  emailHref: "mailto:info@beeyondphysio.com",
+  email: "info@beyondphysio.com",
+  emailHref: "mailto:info@beyondphysio.com",
   address:
     "Besides Aga Khan Lab & Chughtai Lab, Saeedabad, Baldia Town, Karachi",
 } as const;
 
 export const SOCIAL = {
-  facebook:
-    "https://www.facebook.com/people/Beyond-Physio-by-Dr-Summaya-Talha/61561374382022/",
+  facebook: "https://www.facebook.com/share/18pY89drkS/",
+  linkedin: "https://www.linkedin.com/in/dr-summaya-talha-4abb8720a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+  youtube: "https://youtube.com/@beyondphysiobydrsummaya?si=JNH7F7t1YOsZ_OE0",
+  instagram: "https://www.instagram.com/summayatalha?igsi=MTV1NHI3NTYyaG45MA==",
 } as const;
 
 export const NAV_LINKS = [

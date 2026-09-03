@@ -93,10 +93,10 @@ export function AppointmentForm() {
   if (submitted) {
     return (
       <div
-        className="rounded-2xl bg-mint/40 p-8 text-center ring-1 ring-teal/20"
+        className="rounded-2xl bg-[var(--color-deep-teal)]/70 p-8 text-center ring-1 ring-[rgba(225,16,0,0.08)]"
         role="status"
       >
-        <p className="font-serif text-xl font-bold text-navy">
+        <p className="font-serif text-xl font-bold text-white">
           Request Received
         </p>
         <p className="mt-3 text-sm leading-relaxed text-foreground/70">
@@ -108,7 +108,7 @@ export function AppointmentForm() {
   }
 
   const fieldClass =
-    "w-full min-w-0 rounded-lg border border-mint bg-white px-4 py-3 text-base text-navy placeholder:text-foreground/40 transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 sm:text-sm min-h-[44px]";
+    "w-full min-w-0 rounded-lg border border-[rgba(255,255,255,0.06)] bg-[var(--color-mint)] px-4 py-3 text-base text-white placeholder:text-foreground/40 transition-colors focus:border-[var(--color-teal)] focus:outline-none focus:ring-2 focus:ring-[var(--color-teal)]/20 sm:text-sm min-h-[44px]";
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-4 sm:space-y-5">
@@ -232,9 +232,9 @@ function Field({
   const fieldId = id ?? label.toLowerCase().replace(/\s+/g, "-");
   return (
     <div>
-      <label htmlFor={fieldId} className="mb-1.5 block text-sm font-medium text-navy">
+      <label htmlFor={fieldId} className="mb-1.5 block text-sm font-medium text-white">
         {label}
-        {required && <span className="text-teal"> *</span>}
+        {required && <span className="text-[var(--color-teal)]"> *</span>}
       </label>
       {children}
       {error && (

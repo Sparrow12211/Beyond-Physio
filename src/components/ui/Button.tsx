@@ -12,13 +12,13 @@ interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-teal text-white hover:bg-deep-teal shadow-sm hover:shadow-md",
+    "bg-[var(--color-teal)] text-white hover:brightness-95 shadow-sm hover:shadow-md", // Updated to use --color-teal
   secondary:
-    "bg-navy text-white hover:bg-deep-teal shadow-sm hover:shadow-md",
+    "bg-[var(--color-deep-teal)] text-white hover:brightness-95 shadow-sm hover:shadow-md", // Consistent with other variants
   outline:
-    "border-2 border-teal text-teal hover:bg-teal hover:text-white",
+    "border-2 border-[var(--color-white)] text-[var(--color-white)] hover:bg-[var(--color-teal)] hover:text-white",
   white:
-    "bg-white text-navy hover:bg-mint shadow-sm hover:shadow-md",
+    "bg-white text-[var(--color-navy)] hover:bg-[color:rgba(255,255,255,0.95)] shadow-sm hover:shadow-md",
 };
 
 export function Button({
@@ -29,7 +29,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:px-6",
+    "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-teal)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:px-6",
     variants[variant],
     className,
   );

@@ -1,24 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --color-navy: #062b55;
-  --color-deep-teal: #006b6b;
-  --color-teal: #0b8f8f;
-  --color-mint: #ddf5f3;
-  --color-bg-light: #f7fbfa;
+  --color-navy: #FFFFFF; /* headings/text color (keeps existing text-navy usage readable) */
+  --color-deep-teal: #0B0B0B; /* deep charcoal */
+  --color-teal: #E10600; /* primary accent red */
+  --color-mint: #111111; /* subtle dark gray for panels */
+  --color-bg-light: #050505; /* site background (dark) */
   --color-white: #ffffff;
   --background: var(--color-bg-light);
-  --foreground: #1a2e3b;
+  --foreground: #ffffff; /* body text on dark bg */
+  --muted-text: #A1A1A1; /* for secondary text */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-navy: #062b55;
-  --color-deep-teal: #006b6b;
-  --color-teal: #0b8f8f;
-  --color-mint: #ddf5f3;
-  --color-bg-light: #f7fbfa;
+  --color-navy: #050505;
+  --color-deep-teal: #0B0B0B;
+  --color-teal: #E10600;
+  --color-mint: #111111;
+  --color-bg-light: #050505;
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }
@@ -62,23 +63,15 @@ body {
 
 /* Decorative wave pattern */
 .pattern-dots {
-  background-image: radial-gradient(
-    circle,
-    rgba(11, 143, 143, 0.08) 1px,
-    transparent 1px
-  );
+  background-image: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .gradient-hero {
-  background: linear-gradient(
-    135deg,
-    var(--color-bg-light) 0%,
-    var(--color-mint) 50%,
-    var(--color-bg-light) 100%
-  );
+  background: linear-gradient(180deg, var(--color-navy) 0%, rgba(225,16,0,0.06) 55%, var(--color-deep-teal) 100%);
 }
 
 .gradient-cta {
-  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-deep-teal) 100%);
+  /* Solid dark CTA/footer background for a premium look */
+  background: linear-gradient(180deg, #0D0D0D 0%, #050505 100%);
 }

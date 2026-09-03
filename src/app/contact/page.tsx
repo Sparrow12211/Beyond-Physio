@@ -28,7 +28,7 @@ export default function ContactPage() {
           <div className="grid gap-8 sm:gap-10 lg:grid-cols-5 lg:gap-16">
             {/* Contact info */}
             <AnimatedSection className="min-w-0 lg:col-span-2">
-              <h2 className="font-serif text-xl font-bold text-navy min-[375px]:text-2xl">
+              <h2 className="font-serif text-xl font-bold text-white min-[375px]:text-2xl">
                 Book an Appointment
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-foreground/70">
@@ -45,31 +45,31 @@ export default function ContactPage() {
                 </Button>
               </div>
 
-              <h3 className="mt-8 font-serif text-lg font-bold text-navy min-[375px]:text-xl sm:mt-10">
+              <h3 className="mt-8 font-serif text-lg font-bold text-white min-[375px]:text-xl sm:mt-10">
                 Contact Information
               </h3>
               <ul className="mt-4 space-y-4">
                 <li>
                   <a
                     href={CONTACT.phoneHref}
-                    className="flex items-start gap-3 text-sm text-foreground/70 transition-colors hover:text-teal"
+                    className="flex items-start gap-3 text-sm text-foreground/70 transition-colors hover:text-[var(--color-teal)]"
                   >
-                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
+                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-teal)]" />
                     {CONTACT.phone}
                   </a>
                 </li>
                 <li>
                   <a
                     href={CONTACT.emailHref}
-                    className="flex items-start gap-3 text-sm text-foreground/70 transition-colors hover:text-teal"
+                    className="flex items-start gap-3 text-sm text-foreground/70 transition-colors hover:text-[var(--color-teal)]"
                   >
-                    <Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
+                    <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-teal)]" />
                     {CONTACT.email}
                   </a>
                 </li>
                 <li>
                   <span className="flex items-start gap-3 break-words text-sm text-foreground/70">
-                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-teal)]" />
                     {CONTACT.address}
                   </span>
                 </li>
@@ -78,8 +78,8 @@ export default function ContactPage() {
 
             {/* Form */}
             <AnimatedSection delay={0.1} className="min-w-0 lg:col-span-3">
-              <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-mint/60 sm:p-6 md:p-8">
-                <h2 className="font-serif text-xl font-bold text-navy min-[375px]:text-2xl">
+              <div className="rounded-2xl bg-[var(--color-mint)] p-5 shadow-sm ring-1 ring-[var(--color-deep-teal)] sm:p-6 md:p-8">
+                <h2 className="font-serif text-xl font-bold text-white min-[375px]:text-2xl">
                   Request an Appointment
                 </h2>
                 <p className="mt-2 text-sm text-foreground/60">

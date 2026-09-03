@@ -43,7 +43,7 @@ export function CallToAction() {
             subtitle="Book your appointment and start your journey toward better movement, recovery and wellbeing."
             light
           />
-          <Button href="/contact" variant="white" className="mt-2 w-full sm:w-auto">
+          <Button href="/contact" variant="primary" className="mt-2 w-full sm:w-auto">
             Book an Appointment
           </Button>
         </AnimatedSection>
