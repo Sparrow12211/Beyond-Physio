@@ -17,11 +17,11 @@ export function Hero() {
               {SITE.name.toUpperCase()}
             </p>
             <h1 className="font-serif text-[1.75rem] font-bold leading-[1.15] text-white min-[360px]:text-4xl sm:text-5xl lg:text-[3.25rem]">
-              Move Better.
+              We Heal.
               <br />
-              Feel Better.
+              We Move.
               <br />
-              <span className="text-[var(--color-teal)]">Live Better.</span>
+              <span className="text-[var(--color-teal)]">We Strengthen.</span>
             </h1>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-foreground/70 sm:mt-6 sm:text-base md:text-lg">
               {SITE.description}
